@@ -16,11 +16,10 @@ public class Main implements Directions {
     karel.turnLeft();
     karel.move();
     karel.move();
-    karel.move();
+    
     //initial position
     karel.turnLeft();
     karel.turnLeft();
-    karel.move();
     karel.putBeeper();
     karel.move();
     karel.putBeeper();
@@ -41,12 +40,7 @@ public class Main implements Directions {
     karel.move();
     //reposition
     karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
+    moveThree(karel);
     karel.turnLeft();
     //
     karel.move();
@@ -61,17 +55,13 @@ public class Main implements Directions {
     karel.putBeeper();
     karel.move();
     karel.putBeeper();
-    karel.turnLeft();
-    karel.turnLeft();
-    karel.turnLeft();
+    turnRight(karel);
 
     karel.move();
     karel.putBeeper();
     karel.move();
     karel.putBeeper();
-    karel.turnLeft();
-    karel.turnLeft();
-    karel.turnLeft();
+    turnRight(karel);
 
     karel.move();
     karel.putBeeper();
@@ -93,6 +83,25 @@ karel.move();
       placeholder.turnLeft();
       placeholder.turnLeft();
       placeholder.turnLeft();
+      //this is turnRight
+    }
+
+      public static void moveThree(Robot placeholder){
+      placeholder.move();
+      placeholder.putBeeper();
+      placeholder.move();
+      placeholder.putBeeper();
+      placeholder.move();
+      placeholder.putBeeper();
+      }
+
+      public static void moveFour(Robot k){
+        for(int i=0; i<4; i++){
+          k.move();
+          k.putBeeper();
+        }
+      
+      
 }
 
 }
