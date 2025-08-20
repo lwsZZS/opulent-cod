@@ -1,98 +1,80 @@
 import javax.swing.*;
 import java.awt.event.*;
 import kareltherobot.*;
-//This is the starter code for Karel the Robot AP CSA Thai
+import java.util.Scanner;
 
-public class Main implements Directions {
-  public static void main(String[] args) 
-	{
-		//My robot's name is karel
-    Robot karel = new Robot(5,1,East,100);
+public class Main implements Directions
+{
+    public static void main(String[] args){
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Please enter your user name");
+
+  String userName = myObj.nextLine();  // Read user input of a String
+  System.out.println("Hello " + userName + "! It is good to meet you!");  // Returns user output user input
+   
+        Scanner in = new Scanner(System.in); // Read the user input of an int
+  System.out.println("How many beepers do you want on each side of the diamond?");
+  int side = in.nextInt(); //Stores the number of beepers on each side of the diamond
+   
+    Robot fred = new Robot(6, 1, North, 100);
+    //World.setSize(side*2, side*2);
     World.setVisible(true);
-    World.setSize(10,10);
-    World.setDelay(100);
+    World.setDelay(10);
+    int x = side;
 
-		karel.move();
-    karel.turnLeft();
-    karel.move();
-    karel.move();
-    karel.move();
-    //initial position
-    karel.turnLeft();
-    karel.turnLeft();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.turnLeft();
-    //first part of L
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    //second part of L
-    karel.move();
-    //reposition
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.turnLeft();
-    //
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.turnLeft();
-    
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.turnLeft();
-    karel.turnLeft();
-    karel.turnLeft();
+        fred.putBeeper();
+        fred.turnLeft();
+        fred.turnLeft();
+        leaveFive(fred);
+        fred.putBeeper();
+        fred.turnLeft();
+        leaveAnotherFive(fred);
+        fred.turnLeft();
+        leaveFive(fred);
+        fred.turnLeft();
+        leaveAnotherFive(fred);
 
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.turnLeft();
-    karel.turnLeft();
-    karel.turnLeft();
+        
+        
 
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-    karel.move();
-    karel.putBeeper();
-
-    turnRight(karel); //here is where I call the method
-karel.move();
-karel.move();
-    
+        //calling the method, inserting the robot parameter I want to turn right
+        
   }
 
-//this is a method. We use a placeholder robot as a parameter
-//so thatI can call the method inside of my main method
 
-    public static void turnRight(Robot placeholder){
-      placeholder.turnLeft();
-      placeholder.turnLeft();
-      placeholder.turnLeft();
-}
+    //write a method that will turn right
+public static void turnRight(Robot r) //create a new method using a Robot parameter. r is a temp placeholder.
+    {
+      r.turnLeft();
+      r.turnLeft();
+      r.turnLeft();
 
+    }
+    //write a method that will go 5 steps and leave beepers each time.
+public static void leaveFive(Robot r)//create a method bringing in a Robot parameter. r is a temp placeholder.
+    {
+      for(int i = 1; i<5; i++){
+        r.move();
+        r.turnLeft();
+        r.move();
+        turnRight(r);
+        r.putBeeper();
+        
+
+      }
+
+    }
+
+    //Here we are going to learn how to make a loop
+    public static void leaveAnotherFive(Robot bob){
+      for(int i = 1; i<5; i++){
+        bob.move();
+        bob.turnLeft();
+        bob.move();
+        turnRight(bob);
+        bob.putBeeper();
+        
+
+    }
+  }
 }
